@@ -1,5 +1,5 @@
-import { Config } from "../configs/configs";
-import { bot } from "../bot"
+import { Config } from "../../configs/configs";
+import { bot } from "../../bot"
 
 export default async function ErrorHandler(handlerName: string, functionName: string, error: any) {
 

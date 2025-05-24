@@ -15,4 +15,8 @@ export class Config {
         name: process.env.DB_NAME
     };
     
+    static redis = {
+        host: process.env.REDIS_HOST,
+        port: Number(process.env.REDIS_PORT)
+    }
 }

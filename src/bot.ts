@@ -1,10 +1,12 @@
 import { Bot, GrammyError, HttpError } from "grammy";
 import { Config } from "./configs/configs";
 import dispatcher from "./dispatcher";
+import { rateLimiter } from "./utils/security/ratelimiter/ratelimiter";
 
 export const bot = new Bot(Config.botToken)
 
-bot.use(dispatcher)
+bot.use(rateLimiter);
+bot.use(dispatcher);
 
 bot.start()
 .catch((err) => {

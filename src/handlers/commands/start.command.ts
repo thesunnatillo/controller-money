@@ -1,4 +1,4 @@
-import ErrorHandler from "../../utils/errors";
+import ErrorHandler from "../../utils/errors/errors";
 
 export default async function startCommand(ctx: any) {
 
