@@ -5,7 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "bot": "npx tsc && node dist/bot.js"
+    "bot": "npx tsc && node dist/bot.js",
+    "typeorm": "ts-node ./node_modules/typeorm/cli",
+    "migration:generate": "ts-node ./node_modules/typeorm/cli migration:generate -d ./src/database/data.source.ts",
+    "migration:create": "ts-node ./node_modules/typeorm/cli migration:create",
+    "migration:run": "npm run typeorm migration:run -- -d ./src/database/data.source.ts",
+    "migration:revert": "npm run typeorm migration:revert -- -d ./src/database/data.source.ts"
   },
   "keywords": [],
   "author": "",
@@ -13,7 +18,9 @@
   "type": "commonjs",
   "dependencies": {
     "dotenv": "^16.5.0",
-    "grammy": "^1.36.1"
+    "grammy": "^1.36.1",
+    "pg": "^8.16.0",
+    "typeorm": "^0.3.24"
   },
   "devDependencies": {
     "@types/node": "^22.15.18",
