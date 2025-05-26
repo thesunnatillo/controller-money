@@ -5,8 +5,8 @@ import { PostsEntity } from "./posts.entity";
 @Entity({ name: "users", schema: "public" })
 export class UsersEntity extends GeneralEntity {
 
-    @Column("varchar", { name: "telegram_id" })
-    telegramId: string;
+    @Column("bigint", { name: "telegram_id" })
+    telegramId: number;
 
     @Column("varchar", { name: "name", nullable: true })
     name: string;
