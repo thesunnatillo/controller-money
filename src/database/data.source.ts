@@ -8,7 +8,7 @@ export const AppDataSource = new DataSource({
     username: Config.database.user,
     password: Config.database.password,
     database: Config.database.name,
-    schema: "public",
+    schema: "cash",
     keepConnectionAlive: true,
     logging: false,
     migrations: [__dirname + '/migrations/**'],

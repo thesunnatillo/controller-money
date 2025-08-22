@@ -1,4 +1,4 @@
-export enum RatingEnum {
-    LIKE = 1,
-    UNLIKE
+export enum TransactionsTypeEnum {
+    INCOME = "income",
+    EXPENCE = "expense"
 }

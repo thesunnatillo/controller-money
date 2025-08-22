@@ -1,7 +1,8 @@
-import { Column, Entity, JoinColumn, OneToOne } from "typeorm";
+import { Column, Entity, OneToMany } from "typeorm";
 import { GeneralEntity } from "../../utils/entity/base.entity";
+import { WalletsEntity } from "./wallets.entity";
 
-@Entity({ name: "users", schema: "public" })
+@Entity({ name: "users", schema: "cash" })
 export class UsersEntity extends GeneralEntity {
 
     @Column("bigint", { name: "telegram_id" })
@@ -12,5 +13,8 @@ export class UsersEntity extends GeneralEntity {
 
     @Column("varchar", { name: "username", nullable: true })
     username: string;
+
+    @OneToMany(() => WalletsEntity, wallet => wallet.user)
+    wallets: WalletsEntity[];
 
 }
