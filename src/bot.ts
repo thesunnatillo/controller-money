@@ -1,11 +1,14 @@
-import { Bot, GrammyError, HttpError } from "grammy";
+import { Bot, GrammyError, HttpError, session } from "grammy";
 import { Config } from "./configs/configs";
 import dispatcher from "./dispatcher";
 import { rateLimiter } from "./utils/security/ratelimiter/ratelimiter";
 import { AppDataSource } from "./database/data.source";
+import { MyContext } from "./utils/types/bot.type";
+import initial from "./sessions";
 
-export const bot = new Bot(Config.botToken)
+export const bot = new Bot<MyContext>(Config.botToken)
 
+bot.use(session({ initial }));
 bot.use(rateLimiter);
 bot.use(dispatcher);
 

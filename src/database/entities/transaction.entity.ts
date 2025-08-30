@@ -1,4 +1,4 @@
-import { Column, Entity, ManyToOne } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne } from "typeorm";
 import { WalletsEntity } from "./wallets.entity";
 import { TransactionsTypeEnum } from "../../utils/enums/enums";
 import { GeneralEntity } from "../../utils/entity/base.entity";
@@ -16,6 +16,10 @@ export class TransactionsEntity extends GeneralEntity {
   description: string;
 
   @ManyToOne(() => WalletsEntity, (wallet) => wallet.transactions, { onDelete: "CASCADE" })
+  @JoinColumn({
+    name: "wallet_id",
+    referencedColumnName: "id"
+  })
   wallet: WalletsEntity;
 
 }

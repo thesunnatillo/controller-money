@@ -1,7 +1,7 @@
 {
-  "name": "rockbrainbotv1",
+  "name": "my-money-stat-bot",
   "version": "1.0.0",
-  "description": "",
+  "description": "Telegram: (t.me/i2blog)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -13,8 +13,8 @@
     "migration:revert": "npm run typeorm migration:revert -- -d ./src/database/data.source.ts"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Sunnatillo Sharipov (thesunnatillo)",
+  "license": "MIT",
   "type": "commonjs",
   "dependencies": {
     "@grammyjs/ratelimiter": "^1.2.1",

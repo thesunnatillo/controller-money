@@ -1,4 +1,4 @@
-import { BaseEntity, Column, Entity, ManyToOne, OneToMany } from "typeorm";
+import { BaseEntity, Column, Entity, JoinColumn, ManyToOne, OneToMany } from "typeorm";
 import { UsersEntity } from "./users.entity";
 import { TransactionsEntity } from "./transaction.entity";
 import { GeneralEntity } from "../../utils/entity/base.entity";
@@ -13,9 +13,13 @@ export class WalletsEntity extends GeneralEntity {
     description: string;
 
     @Column("decimal", { name: "balance", precision: 12, scale: 2, default: 0 })
-    balance: string;
+    balance: number;
 
     @ManyToOne(() => UsersEntity)
+    @JoinColumn({
+        name: "user_id",
+        referencedColumnName: "id"
+    })
     user: UsersEntity;
 
     @OneToMany(() => TransactionsEntity, transaction => transaction.wallet)
